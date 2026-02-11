@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!-- Sentry Logback Appender -->
+    <appender name="SENTRY" class="io.sentry.logback.SentryAppender">
+        <!-- WARN 이상 레벨만 Sentry로 전송 -->
+        <minimumEventLevel>WARN</minimumEventLevel>
+        <!-- INFO 이상을 Breadcrumb으로 기록 -->
+        <minimumBreadcrumbLevel>INFO</minimumBreadcrumbLevel>
+    </appender>
+
+    <!-- Root Logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SENTRY"/>
+    </root>
+
+    <!-- Application Logger -->
+    <logger name="com.example.sentrydemo" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SENTRY"/>
+    </logger>
+</configuration>
