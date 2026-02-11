@@ -8,7 +8,7 @@
 ### 1. 사전 요구사항
 
 - **Node.js**: v18 이상 권장
-- **Java**: JDK 17 이상
+- **Java**: JDK 21 이상 (LTS 권장)
 - **Sentry 계정**: 테스트할 Sentry 프로젝트(Vue, Spring Boot) 생성 및 DSN 발급
 
 ---
@@ -62,8 +62,8 @@
    ```bash
    cd backend
    
-   # Windows
-   ./gradlew.bat bootRun
+   # Windows (한글 로그 깨짐 방지 스크립트 실행)
+   .\run-backend.bat
 
    # Mac/Linux
    ./gradlew bootRun
